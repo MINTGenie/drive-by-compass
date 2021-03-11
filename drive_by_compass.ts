@@ -6,7 +6,7 @@ namespace OrientBit {
     * @param is the preferred_heading angle to orient to.
     * This function returns an array of 2 numbers which are speeds for left and right motor
     */
-    //% block="Set heading direction to %preferred_heading degrees at speed %fwd_speed"
+    //% block="set heading direction to %preferred_heading degrees at speed %fwd_speed"
     //% group="Navigate"
     //% preferred_heading.min=0 preferred_heading.max=359
     //% preferred_heading.defl=90
@@ -130,7 +130,7 @@ namespace OrientBit {
     let _mpu9250: mpu9250 = new mpu9250(0x68)
 
     //% blockId=MINTGenieBit_get_regVal
-    //% block="Get Reg Val at %regAddr"
+    //% block="get Reg Val at %regAddr"
     //% group="MPU9250 IMU"
     //% subcategory="Expert"
     export function getVal(regAddr: number): number {
@@ -138,7 +138,7 @@ namespace OrientBit {
     }
 
     //% blockId=MINTGenieBit_get_identity
-    //% block="Get ident"
+    //% block="get ident"
     //% group="MPU9250 IMU"
     export function getident(): number {
         return (_mpu9250.identify())
@@ -148,7 +148,7 @@ namespace OrientBit {
      * Get the amount of red the colour sensor sees
      */
     //% blockId=MINTGenieBit_getGyroX
-    //% block="Get GyroX"
+    //% block="get GyroX"
     //% group="MPU9250 IMU"
     export function getGyroX(): number {
         return (_mpu9250.xyz()[0])
@@ -158,7 +158,7 @@ namespace OrientBit {
      * Get the amount of green the colour sensor sees
      */
     //% blockId=MINTGenieBit_getGyroY
-    //% block="Get GyroY"
+    //% block="get GyroY"
     //% group="MPU9250 IMU"
     export function getGyroY(): number {
         return (_mpu9250.xyz()[1])
@@ -168,7 +168,7 @@ namespace OrientBit {
      * Get the amount of blue the colour sensor sees
      */
     //% blockId=MINTGenieBit_get_GyroZ
-    //% block="Get GyroZ"
+    //% block="get GyroZ"
     //% group="MPU9250 IMU"
     export function getGyroZ(): number {
         return (_mpu9250.xyz()[2])
@@ -232,7 +232,7 @@ namespace OrientBit {
      * Set the colour sensor LEDs
      */
     //% blockId=MINTGenieBit_set_leds
-    //% block="Set LEDs to %state"
+    //% block="set LEDs to %state"
     //% group="Colour & Light"
     export function setLEDs(state: OnOff): void {
         _tcs34725.setLEDs(state)
@@ -242,7 +242,7 @@ namespace OrientBit {
      * Get the light level
      */
     //% blockId=MINTGenieBit_get_light_clear
-    //% block="Get light"
+    //% block="get light"
     //% group="Colour & Light"
     export function getLight(): number {
         return Math.round(_tcs34725.light())
@@ -252,7 +252,7 @@ namespace OrientBit {
      * Get the amount of red the colour sensor sees
      */
     //% blockId=MINTGenieBit_get_light_red
-    //% block="Get red"
+    //% block="get red"
     //% group="Colour & Light"
     export function getRed(): number {
         return Math.round(_tcs34725.rgb()[0])
@@ -262,7 +262,7 @@ namespace OrientBit {
      * Get the amount of green the colour sensor sees
      */
     //% blockId=MINTGenieBit_get_light_green
-    //% block="Get green"
+    //% block="get green"
     //% group="Colour & Light"
     export function getGreen(): number {
         return Math.round(_tcs34725.rgb()[1])
@@ -272,7 +272,7 @@ namespace OrientBit {
      * Set the integration time of the colour sensor in ms
      */
     //% blockId=MINTGenieBit_set_integration_time
-    //% block="Set colour integration time %time ms"
+    //% block="set colour integration time %time ms"
     //% time.min=0 time.max=612 value.defl=500
     //% group="Colour & Light"
     //% subcategory="Expert"
@@ -285,7 +285,7 @@ namespace OrientBit {
      * Get the amount of blue the colour sensor sees
      */
     //% blockId=MINTGenieBit_get_light_blue
-    //% block="Get blue"
+    //% block="get blue"
     //% group="Colour & Light"
     export function getBlue(): number {
         return Math.round(_tcs34725.rgb()[2])
@@ -295,7 +295,7 @@ namespace OrientBit {
      * SMBus functions
      */
     
-    //% block="Create Buffer of size %size"
+    //% block="create Buffer of size %size"
     //% group="SMBus"
     //% subcategory="Expert"
     //% weight=80
@@ -304,7 +304,7 @@ namespace OrientBit {
         return temp
     }
 
-    //% block="Write to Device addr %addr at Reg address %register a value %value"
+    //% block="write to Device addr %addr at Reg address %register a value %value"
     //% group="SMBus"
     //% subcategory="Expert"
     //% weight=40
@@ -315,7 +315,7 @@ namespace OrientBit {
         pins.i2cWriteBuffer(addr, temp, false);
     }
 
-    //% block="Write to Device addr %addr at Reg address %register a buffer %value"
+    //% block="write to Device addr %addr at Reg address %register a buffer %value"
     //% group="SMBus"
     //% subcategory="Expert"
     //% weight=30
@@ -328,7 +328,7 @@ namespace OrientBit {
         pins.i2cWriteBuffer(addr, temp, false);
     }
     
-    //% block="Read buffer from Device addr %addr at Reg address %register with length %fmt - using repeat start %repeat_start"
+    //% block="read buffer from Device addr %addr at Reg address %register with length %fmt - using repeat start %repeat_start"
     //% repeat_start.defl=true
     //% group="SMBus"
     //% subcategory="Expert"
@@ -340,7 +340,7 @@ namespace OrientBit {
         return pins.i2cReadBuffer(addr, len, false);
     }
 
-    //% block="Read value from Device addr %addr at Reg address %register in format %fmt - using repeat start %repeat_start"
+    //% block="read value from Device addr %addr at Reg address %register in format %fmt - using repeat start %repeat_start"
     //% repeat_start.defl=true
     //% group="SMBus"
     //% subcategory="Expert"
