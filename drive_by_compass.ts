@@ -38,7 +38,6 @@ namespace OrientBit {
         return motor_speed_l_r
     }
     let sampler = 0
-    let l_speed_r_speed_arr: number[] = []
     let motor_speed_l_r: number[] = []
     let Right_motor_speed = 0
     let Left_motor_speed = 0

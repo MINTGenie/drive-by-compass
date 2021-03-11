@@ -11,8 +11,9 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 let preffered_heading = 255
+let l_speed_r_speed_arr: number[] = []
 basic.forever(function () {
-    l_speed_r_speed_arr = course_correct(preffered_heading)
+    l_speed_r_speed_arr = OrientBit.course_correct(preffered_heading)
     maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, l_speed_r_speed_arr[0])
     maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, l_speed_r_speed_arr[1])
 })
