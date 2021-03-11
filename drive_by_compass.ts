@@ -1,4 +1,4 @@
-//% color="#4C97FF" icon="\UA-44039803-2"
+//% color="#4C97FF" icon="\uf0a4"
 namespace OrientBit {
     /**
     * Orient in the direction of the value specified and move forward..
@@ -6,7 +6,6 @@ namespace OrientBit {
     * This function returns an array of 2 numbers which are speeds for left and right motor
     */
     //% block
-    //% help=functions/course_correct
     //% preferred_heading.min=0 preferred_heading.max=359
     export function course_correct (preferred_heading: number): number[] {
         big_diff_speed = 30
