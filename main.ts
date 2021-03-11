@@ -11,27 +11,35 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 function course_correct (get_read: number, pref: number, diff_motor_speed: boolean) {
+    serial.writeValue("x", get_read)
     if (diff_motor_speed) {
-        if (get_reading <= preffered_heading) {
-            maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 30)
-            maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 0)
-        } else if (get_reading >= preffered_heading) {
-            maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, 0)
-            maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 30)
+        if (get_read <= pref) {
+            Left_motor_speed = 30
+            Right_motor_speed = 0
+        } else if (get_read >= pref) {
+            Left_motor_speed = 0
+            Right_motor_speed = 30
         }
     } else {
-        if (get_reading <= preffered_heading - 2) {
-            maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 35)
-            maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 28)
-        } else if (get_reading >= preffered_heading + 2) {
-            maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 28)
-            maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 35)
+        if (get_read <= pref - 1) {
+            Left_motor_speed = 35
+            Right_motor_speed = 28
+        } else if (get_read >= pref + 1) {
+            Left_motor_speed = 28
+            Right_motor_speed = 35
         } else {
-            maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, 30)
+            Left_motor_speed = 32
+            Right_motor_speed = 32
         }
     }
+    motor_speed_l_r = [Left_motor_speed, Right_motor_speed]
+    return motor_speed_l_r
 }
+let l_speed_r_speed_arr: number[] = []
 let get_reading = 0
+let motor_speed_l_r: number[] = []
+let Right_motor_speed = 0
+let Left_motor_speed = 0
 let preffered_heading = 0
 preffered_heading = 255
 let sampler = 0
@@ -41,19 +49,21 @@ basic.forever(function () {
     if (ready) {
         get_reading = current_heading
         if (Math.abs(get_reading - preffered_heading) > 15) {
-            course_correct(get_reading, preffered_heading, true)
+            l_speed_r_speed_arr = course_correct(get_reading, preffered_heading, true)
         } else {
-            course_correct(get_reading, preffered_heading, false)
+            l_speed_r_speed_arr = course_correct(get_reading, preffered_heading, false)
         }
+        maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, l_speed_r_speed_arr[0])
+        maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, l_speed_r_speed_arr[1])
     }
 })
 control.inBackground(function () {
     while (true) {
-        for (let index = 0; index <= 9; index++) {
+        for (let index = 0; index <= 4; index++) {
             sampler += input.compassHeading()
             basic.pause(2)
         }
-        current_heading = sampler / 10
+        current_heading = sampler / 5
         sampler = 0
         ready = true
     }
