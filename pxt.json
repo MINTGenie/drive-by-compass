@@ -11,7 +11,8 @@
         "main.blocks",
         "main.ts",
         "README.md",
-        "drive_by_compass.ts"
+        "drive_by_compass.ts",
+        "_locales/en-GB/README.md"
     ],
     "testFiles": [
         "test.ts"

@@ -1,5 +1,3 @@
-// Add your code here
-
 //% color="#4C97FF"
 namespace OrientBit {
     //% block
