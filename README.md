@@ -1,5 +1,5 @@
 
-> Open this page at [https://mintgenie.github.io/drive-by-compass-try/](https://mintgenie.github.io/drive-by-compass-try/)
+> Open this page at [https://mintgenie.github.io/drive-by-compass/](https://mintgenie.github.io/drive-by-compass/)
  
 
 ![image](https://user-images.githubusercontent.com/66748747/110723615-9e328580-8214-11eb-8e94-2296814e6245.png)
@@ -21,7 +21,7 @@ To edit this repository in MakeCode.
 
 * open [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * click on **Import** then click on **Import URL**
-* paste **https://github.com/mintgenie/drive-by-compass-try** and click import
+* paste **https://github.com/mintgenie/drive-by-compass** and click import
 
 The Course_correct block is used for driving in the direction of a particular heading angle.
 This heading angle has to be passed as parameter to "preferred_heading".
@@ -33,7 +33,7 @@ Assign the value of array[0] to left motor and value of array[1] to right motor.
 This image shows the blocks code from the last commit in master.
 This image may take a few minutes to refresh.
 
-![A rendered view of the blocks](https://github.com/mintgenie/drive-by-compass-try/raw/master/.github/makecode/blocks.png)
+![A rendered view of the blocks](https://github.com/mintgenie/drive-by-compass/raw/master/.github/makecode/blocks.png)
 
 #### Metadata (used for search, rendering)
 
