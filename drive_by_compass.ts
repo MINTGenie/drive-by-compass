@@ -5,7 +5,7 @@ namespace OrientBit {
     * @param is the preferred_heading angle to orient to.
     * This function returns an array of 2 numbers which are speeds for left and right motor
     */
-    //% block "Set heading direction to %preferred_heading degrees at speed %fwd_speed"
+    //% block="Set heading direction to %preferred_heading degrees at speed %fwd_speed"
     //% preferred_heading.min=0 preferred_heading.max=359
     //% preferred_heading.defl=90
     //% fwd_speed.min=28 fwd_speed.max=100
