@@ -219,7 +219,7 @@ namespace OrientBit {
             return smbus_unpack("HHHH", result)
         }
     }
-	let _tcs34725: tcs34725 = new tcs34725(0x29, DigitalPin.P1)
+    let _tcs34725: tcs34725 = new tcs34725(0x29, DigitalPin.P1)
 
     //%
     export enum OnOff {
