@@ -5,13 +5,16 @@ namespace OrientBit {
     * @param is the preferred_heading angle to orient to.
     * This function returns an array of 2 numbers which are speeds for left and right motor
     */
-    //% block
+    //% block "Set heading direction to %preferred_heading degrees at speed %fwd_speed"
     //% preferred_heading.min=0 preferred_heading.max=359
-    export function course_correct (preferred_heading: number): number[] {
+    //% preferred_heading.defl=90
+    //% fwd_speed.min=28 fwd_speed.max=100
+    //% fwd_speed.defl=35
+    export function course_correct (preferred_heading: number, fwd_speed: number): number[] {
         big_diff_speed = 30
         correction_speed_low = 28
         correction_speed_high = 35
-        fwd_speed_norm = 32
+        fwd_speed_norm = fwd_speed
         small_err_bounds = 1
         big_err_bounds = 15
         while (!(ready)) {
