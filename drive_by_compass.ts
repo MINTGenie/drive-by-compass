@@ -3,6 +3,7 @@
 //% color="#4C97FF"
 namespace OrientBit {
     //% block
+    //% preferred_heading.min=0 preferred_heading.max=359
     export function course_correct (preferred_heading: number): number[] {
         big_diff_speed = 30
         correction_speed_low = 28
