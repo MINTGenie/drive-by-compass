@@ -1,6 +1,12 @@
 //% color="#4C97FF"
 namespace OrientBit {
+    /**
+    * Orient in the direction of the value specified and move forward..
+    * @param is the preferred_heading angle to orient to.
+    * This function returns an array of 2 numbers which are speeds for left and right motor
+    */
     //% block
+    //% help=functions/course_correct
     //% preferred_heading.min=0 preferred_heading.max=359
     export function course_correct (preferred_heading: number): number[] {
         big_diff_speed = 30
