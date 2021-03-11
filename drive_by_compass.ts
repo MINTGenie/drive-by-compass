@@ -12,6 +12,7 @@ namespace OrientBit {
     //% preferred_heading.defl=90
     //% fwd_speed.min=28 fwd_speed.max=100
     //% fwd_speed.defl=35
+
     export function course_correct (preferred_heading: number, fwd_speed: number): number[] {
         big_diff_speed = 30
         correction_speed_low = 28
@@ -131,6 +132,7 @@ namespace OrientBit {
     //% blockId=MINTGenieBit_get_regVal
     //% block="Get Reg Val at %regAddr"
     //% group="MPU9250 IMU"
+    //% subcategory="Expert"
     export function getVal(regAddr: number): number {
         return (_mpu9250.getRegAddr(regAddr))
     }
@@ -272,8 +274,8 @@ namespace OrientBit {
     //% blockId=MINTGenieBit_set_integration_time
     //% block="Set colour integration time %time ms"
     //% time.min=0 time.max=612 value.defl=500
-    //% subcategory="Expert"
     //% group="Colour & Light"
+    //% subcategory="Expert"
     //% weight=90
     export function setColourIntegrationTime(time: number): void {
         return _tcs34725.setIntegrationTime(time)
@@ -294,8 +296,8 @@ namespace OrientBit {
      */
     
     //% block="Create Buffer of size %size"
-    //% subcategory="Expert"
     //% group="SMBus"
+    //% subcategory="Expert"
     //% weight=80
     export function createBuf(sz: number):Buffer {
         let temp = pins.createBuffer(sz + 1);
@@ -303,8 +305,8 @@ namespace OrientBit {
     }
 
     //% block="Write to Device addr %addr at Reg address %register a value %value"
-    //% subcategory="Expert"
     //% group="SMBus"
+    //% subcategory="Expert"
     //% weight=40
     export function smbus_writeByte(addr: number, register: number, value: number): void {
         let temp = pins.createBuffer(2);
@@ -314,9 +316,8 @@ namespace OrientBit {
     }
 
     //% block="Write to Device addr %addr at Reg address %register a buffer %value"
-    //% value.defl=Buffer
-    //% subcategory="Expert"
     //% group="SMBus"
+    //% subcategory="Expert"
     //% weight=30
     export function smbus_writeBuffer(addr: number, register: number, value: Buffer): void {
         let temp = pins.createBuffer(value.length + 1);
@@ -329,8 +330,8 @@ namespace OrientBit {
     
     //% block="Read buffer from Device addr %addr at Reg address %register with length %fmt - using repeat start %repeat_start"
     //% repeat_start.defl=true
-    //% subcategory="Expert"
     //% group="SMBus"
+    //% subcategory="Expert"
     //% weight=20
     export function smbus_readBuffer(addr: number, register: number, len: number, repeat_start: boolean): Buffer {
         let temp = pins.createBuffer(1);
@@ -341,8 +342,8 @@ namespace OrientBit {
 
     //% block="Read value from Device addr %addr at Reg address %register in format %fmt - using repeat start %repeat_start"
     //% repeat_start.defl=true
-    //% subcategory="Expert"
     //% group="SMBus"
+    //% subcategory="Expert"
     //% weight=10
     export function smbus_readNumber(addr: number, register: number, fmt: NumberFormat = NumberFormat.UInt8LE, repeat_start: boolean): number {
         let temp = pins.createBuffer(1);
