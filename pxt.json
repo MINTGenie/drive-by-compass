@@ -1,5 +1,5 @@
 {
-    "name": "drive by compass",
+    "name": "drive by compass_extension",
     "description": "",
     "dependencies": {
         "core": "*",
@@ -10,7 +10,8 @@
     "files": [
         "main.blocks",
         "main.ts",
-        "README.md"
+        "README.md",
+        "drive_by_compass.ts"
     ],
     "testFiles": [
         "test.ts"
@@ -18,5 +19,5 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
