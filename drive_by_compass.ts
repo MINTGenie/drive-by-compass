@@ -1,4 +1,4 @@
-//% color="#4C97FF"
+//% color="#4C97FF" icon="\UA-44039803-2"
 namespace OrientBit {
     /**
     * Orient in the direction of the value specified and move forward..
