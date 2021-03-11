@@ -1,5 +1,5 @@
 //% color="#4C97FF" icon="\uf0a4"
-//% groups="['Navigate', 'Color & Light', ' MPU9250 IMU']"
+//% groups="['Navigate', 'Color & Light', ' MPU9250 IMU', 'SMBus']"
 namespace OrientBit {
     /**
     * Orient in the direction of the value specified and move forward..
@@ -274,6 +274,7 @@ namespace OrientBit {
     //% time.min=0 time.max=612 value.defl=500
     //% subcategory="Expert"
     //% group="Colour & Light"
+    //% weight=90
     export function setColourIntegrationTime(time: number): void {
         return _tcs34725.setIntegrationTime(time)
     }
@@ -291,10 +292,20 @@ namespace OrientBit {
     /**
      * SMBus functions
      */
-     
+    
+    //% block="Create Buffer of size %size"
+    //% subcategory="Expert"
+    //% group="SMBus"
+    //% weight=80
+    export function createBuf(sz: number):Buffer {
+        let temp = pins.createBuffer(sz + 1);
+        return temp
+    }
+
     //% block="Write to Device addr %addr at Reg address %register a value %value"
     //% subcategory="Expert"
     //% group="SMBus"
+    //% weight=40
     export function smbus_writeByte(addr: number, register: number, value: number): void {
         let temp = pins.createBuffer(2);
         temp[0] = register;
@@ -303,8 +314,10 @@ namespace OrientBit {
     }
 
     //% block="Write to Device addr %addr at Reg address %register a buffer %value"
+    //% value.defl=Buffer
     //% subcategory="Expert"
     //% group="SMBus"
+    //% weight=30
     export function smbus_writeBuffer(addr: number, register: number, value: Buffer): void {
         let temp = pins.createBuffer(value.length + 1);
         temp[0] = register;
@@ -318,23 +331,27 @@ namespace OrientBit {
     //% repeat_start.defl=true
     //% subcategory="Expert"
     //% group="SMBus"
+    //% weight=20
     export function smbus_readBuffer(addr: number, register: number, len: number, repeat_start: boolean): Buffer {
         let temp = pins.createBuffer(1);
         temp[0] = register;
         pins.i2cWriteBuffer(addr, temp, repeat_start);
         return pins.i2cReadBuffer(addr, len, false);
     }
+
     //% block="Read value from Device addr %addr at Reg address %register in format %fmt - using repeat start %repeat_start"
     //% repeat_start.defl=true
     //% subcategory="Expert"
     //% group="SMBus"
+    //% weight=10
     export function smbus_readNumber(addr: number, register: number, fmt: NumberFormat = NumberFormat.UInt8LE, repeat_start: boolean): number {
         let temp = pins.createBuffer(1);
         temp[0] = register;
         pins.i2cWriteBuffer(addr, temp, repeat_start);
         return pins.i2cReadNumber(addr, fmt, false);
     }
-    export function smbus_unpack(fmt: string, buf: Buffer): number[] {
+    
+    function smbus_unpack(fmt: string, buf: Buffer): number[] {
         let le: boolean = true;
         let offset: number = 0;
         let result: number[] = [];
