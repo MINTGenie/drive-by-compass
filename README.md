@@ -28,6 +28,12 @@ This heading angle has to be passed as parameter to "preferred_heading".
 The Course_correct block returns an array of speeds for the left motor and right motor.
 Assign the value of array[0] to left motor and value of array[1] to right motor.
 
+THe available functions are shown below:
+
+![image](https://user-images.githubusercontent.com/66748747/110783675-0a3ed900-8269-11eb-8a0b-c8032146886d.png)
+and
+![image](https://user-images.githubusercontent.com/66748747/110783740-1cb91280-8269-11eb-9ca9-19bd093af324.png)
+
 ## Blocks preview
 
 This image shows the blocks code from the last commit in master.
