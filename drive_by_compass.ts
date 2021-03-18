@@ -177,12 +177,10 @@ namespace OrientBit {
     class tcs34725 {
         is_setup: boolean
         addr: number
-        leds: DigitalPin
 
-        constructor(addr: number, leds: DigitalPin = DigitalPin.P1) {
+        constructor(addr: number) {
             this.is_setup = false
             this.addr = addr
-            this.leds = leds
         }
 
         setup(): void {
@@ -196,10 +194,6 @@ namespace OrientBit {
             this.setup()
             time = Math.clamp(0, 255, time * 10 / 24)
             smbus_writeByte(this.addr, 0x81, 255 - time)
-        }
-
-        setLEDs(state: number): void {
-            pins.digitalWritePin(this.leds, state)
         }
 
         light(): number {
@@ -221,22 +215,7 @@ namespace OrientBit {
             return smbus_unpack("HHHH", result)
         }
     }
-    let _tcs34725: tcs34725 = new tcs34725(0x29, DigitalPin.P1)
-
-    //%
-    export enum OnOff {
-        Off = 0,
-        On = 1
-    }
-    /**
-     * Set the colour sensor LEDs
-     */
-    //% blockId=MINTGenieBit_set_leds
-    //% block="set LEDs to %state"
-    //% group="Colour & Light"
-    export function setLEDs(state: OnOff): void {
-        _tcs34725.setLEDs(state)
-    }
+    let _tcs34725: tcs34725 = new tcs34725(0x29)
 
     /**
      * Get the light level
