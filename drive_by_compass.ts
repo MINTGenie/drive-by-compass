@@ -24,7 +24,7 @@ namespace OrientBit {
             basic.pause(2)
         }
         get_reading = current_heading
-        if (Math.abs(get_reading - prefered_heading) > big_err_bounds) {
+        if (Math.abs(get_reading - preferred_heading) > big_err_bounds) {
             if (get_reading <= preferred_heading) {
                 Left_motor_speed = big_diff_speed
                 Right_motor_speed = 0
