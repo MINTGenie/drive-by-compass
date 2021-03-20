@@ -2,7 +2,7 @@
 let lr_arr_test: number[] = []
 let pref_head = 100
 basic.forever(function () {
-    l_speed_r_speed_arr = OrientBit.course_correct(pref_head, 40)
+    lr_arr_test = OrientBit.course_correct(pref_head, 40)
     pins.digitalWritePin(DigitalPin.P0, lr_arr_test[0])
     pins.digitalWritePin(DigitalPin.P1, lr_arr_test[1])
 })
